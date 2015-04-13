@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+
+<New id="immunodb" class="org.mortbay.jetty.plus.naming.Resource">
+    <Arg>jdbc/ImmunoDB</Arg>
+
+    <Arg>
+
+        <New class="org.apache.commons.dbcp.BasicDataSource">
+
+            <Set name="driverClassName">org.postgresql.Driver</Set>
+
+            <Set name="url">jdbc:postgresql://localhost:5432/forum?charSet=UTF8</Set>
+
+            <Set name="username">postgres</Set>
+
+            <Set name="password">1234</Set>
+
+        </New>
+
+    </Arg>
+</New>
+
+</Configure>
