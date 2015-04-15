@@ -6,8 +6,9 @@
 
 package ru.mf.rui.view.layout;
 
+import ru.mf.rui.view.component.DashboardMenu;
+
 import com.vaadin.ui.AbsoluteLayout;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -21,8 +22,11 @@ public class BaseLayout extends AbsoluteLayout {
 
     public BaseLayout() {
         setSizeFull();
-    }
+        addStyleName("baselayout");
+
+        addComponent(new DashboardMenu());
     
+    }
     public void setHeader(VerticalLayout menuLayout){
         //TODO add head of site(picture) 
     }

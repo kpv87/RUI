@@ -11,9 +11,9 @@
 		
  	<bean id="authenticationLayout" class="ru.mf.rui.view.layout.authentication.AuthenticationLayout" scope="prototype"></bean> 
  	<bean id="leftMenuLayout" class="ru.mf.rui.view.layout.menu.LeftMenuLayout" scope="prototype"></bean>
-	<bean id="startPage" class="ru.mf.rui.view.StartPage" scope="prototype">
+	<bean id="startPage" class="ru.mf.rui.view.StartViewLayout" scope="prototype">
 		<property name="authenticationLayout" ref="authenticationLayout" />
-		<property name="leftMenuLayout" ref="leftMenuLayout" />
+		<!-- <property name="leftMenuLayout" ref="leftMenuLayout" /> -->
 	</bean>
 	
 	<bean id="loginWindow" class="ru.mf.rui.view.window.form.LoginWindow"></bean>

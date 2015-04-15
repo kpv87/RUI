@@ -6,7 +6,7 @@
 
 package ru.mf.rui.view;
 
-import java.util.Arrays;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 
@@ -14,34 +14,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import ru.mf.rui.core.controller.SpringContextHelper;
+
 //import ru.mf.rui.core.controller.SpringContextHelper;
 import ru.mf.rui.db.service.JdbcCorporateEventDao;
+import ru.mf.rui.view.event.ApplicationEventBus;
+import ru.mf.rui.view.layout.BaseLayout;
 
-import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.server.Responsive;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.UI;
 
 /**
  *
  * @author Zip
  */
-//@VaadinUI(path = "/*")
 @Component
 @Scope("prototype") // создается объект по запросу (не синглтон)
-public class MainUI extends UI {
+public class ApplicationUI extends UI {
 
     private Navigator navigator;
     protected static final String STARTPAGE = "startPage";
+    private final ApplicationEventBus applicationEventBus = new ApplicationEventBus();
     
  
     private JdbcCorporateEventDao jdbcCorporateEventDao;
     @Autowired
-    private StartPage startPage;
+    private StartViewLayout startPage;
 	
 	@Resource(name="jdbcCorporateEventDao")
 	public void setJdbcCorporateEventDao(JdbcCorporateEventDao jdbcCorporateEventDao) {
@@ -70,7 +69,20 @@ public class MainUI extends UI {
     	
        // SpringContextHelper contextHelper = new SpringContextHelper(VaadinServlet.getCurrent().getServletContext());
        // ManageUsers manageUsers = (ManageUsers) contextHelper.getBean("manageUsers");
+    	
         getPage().setTitle("Main window");
+        
+        setLocale(Locale.US);
+
+        ApplicationEventBus.register(this);
+        Responsive.makeResponsive(this);
+        //addStyleName(ValoTheme.UI_WITH_MENU);
+        
+        setContent(new BaseLayout());
+        removeStyleName("loginview");
+/*        getNavigator().addView(STARTPAGE, startPage);
+        getNavigator().navigateTo(STARTPAGE);*/ 
+        
         navigator = new Navigator(this, this);
         //register views
         navigator.addView(STARTPAGE, startPage);
@@ -101,6 +113,14 @@ public class MainUI extends UI {
 //                
                 //   MTable<User> table = new Table<User>();
 
+    }
+    
+/*    public static DataProvider getDataProvider() {
+        return ((DashboardUI) getCurrent()).dataProvider;
+    }*/
+    
+    public static ApplicationEventBus getDashboardEventbus() {
+        return ((ApplicationUI) getCurrent()).applicationEventBus;
     }
     
 }

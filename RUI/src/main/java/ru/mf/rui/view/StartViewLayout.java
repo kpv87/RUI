@@ -13,6 +13,7 @@ import ru.mf.rui.view.layout.menu.LeftMenuLayout;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -21,7 +22,7 @@ import com.vaadin.ui.VerticalLayout;
  */
 /*@Component
 @Scope("prototype")*/ 
-public class StartPage extends BaseLayout implements View{
+public class StartViewLayout extends BaseLayout implements View{
 
 /*	@Autowired
 	private AuthenticationLayout authenticationLayout;
@@ -29,10 +30,10 @@ public class StartPage extends BaseLayout implements View{
 	private LeftMenuLayout leftMenuLayout;*/
 	@Autowired
 	private VerticalLayout authenticationLayout;
-	@Autowired
-	private VerticalLayout leftMenuLayout;
+/*	@Autowired
+	private VerticalLayout leftMenuLayout;*/
 	
-	public StartPage() {
+	public StartViewLayout() {
     
     }
     
@@ -48,7 +49,7 @@ public class StartPage extends BaseLayout implements View{
     public void enter(ViewChangeListener.ViewChangeEvent event) {
     	
     //	setAuthentication(authenticationLayout);
-    //    Notification.show("Welcome!");
+        Notification.show("Start Page");
     }
     
 }

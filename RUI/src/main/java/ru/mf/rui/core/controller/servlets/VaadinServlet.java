@@ -17,7 +17,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import ru.mf.rui.view.MainUI;
+import ru.mf.rui.view.ApplicationUI;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
 
@@ -28,7 +28,7 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 /*@Controller
 @RequestMapping("/*")*/
 @WebServlet(urlPatterns = "/*")
-@VaadinServletConfiguration(ui = MainUI.class, productionMode = false)
+@VaadinServletConfiguration(ui = ApplicationUI.class, productionMode = false)
 @SessionAttributes("thought")  
 public class VaadinServlet extends com.vaadin.server.VaadinServlet {
    
