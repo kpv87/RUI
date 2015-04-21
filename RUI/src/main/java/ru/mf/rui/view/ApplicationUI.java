@@ -14,16 +14,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
 //import ru.mf.rui.core.controller.SpringContextHelper;
 import ru.mf.rui.db.service.JdbcCorporateEventDao;
 import ru.mf.rui.view.event.ApplicationEventBus;
-import ru.mf.rui.view.layout.BaseLayout;
+import ru.mf.rui.view.MainView;
 
+import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.themes.ValoTheme;
 
 /**
  *
@@ -31,6 +32,7 @@ import com.vaadin.ui.UI;
  */
 @Component
 @Scope("prototype") // создается объект по запросу (не синглтон)
+@Theme("dashboard")
 public class ApplicationUI extends UI {
 
     private Navigator navigator;
@@ -39,8 +41,8 @@ public class ApplicationUI extends UI {
     
  
     private JdbcCorporateEventDao jdbcCorporateEventDao;
-    @Autowired
-    private StartViewLayout startPage;
+/*    @Autowired
+    private StartViewLayout startPage;*/
 	
 	@Resource(name="jdbcCorporateEventDao")
 	public void setJdbcCorporateEventDao(JdbcCorporateEventDao jdbcCorporateEventDao) {
@@ -76,17 +78,17 @@ public class ApplicationUI extends UI {
 
         ApplicationEventBus.register(this);
         Responsive.makeResponsive(this);
-        //addStyleName(ValoTheme.UI_WITH_MENU);
+        addStyleName(ValoTheme.UI_WITH_MENU);
         
-        setContent(new BaseLayout());
-        removeStyleName("loginview");
-/*        getNavigator().addView(STARTPAGE, startPage);
-        getNavigator().navigateTo(STARTPAGE);*/ 
+        setContent(new MainView());
+       // removeStyleName("loginview");
+        getNavigator().addView(STARTPAGE, StartViewLayout.class);
+        getNavigator().navigateTo(STARTPAGE); 
         
-        navigator = new Navigator(this, this);
+        
         //register views
-        navigator.addView(STARTPAGE, startPage);
-        navigator.navigateTo(STARTPAGE);
+/*        navigator.addView(STARTPAGE, startPage);
+        navigator.navigateTo(STARTPAGE);*/
         
    //     System.out.println("in mainUI = "+contextHelper.getBean("jdbcCorporateEventDao"));
 //        

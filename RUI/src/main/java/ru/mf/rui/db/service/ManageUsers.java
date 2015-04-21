@@ -13,11 +13,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.SessionAttributes;
 //import ru.mf.rui.ejb.UserDaoImpl;
 import ru.mf.rui.db.ejb.BaseDaoInterface;
-import ru.mf.rui.db.entity.User;
+
 
 /**
  *
@@ -26,7 +26,7 @@ import ru.mf.rui.db.entity.User;
 //@Service
 //@Configurable
 public class ManageUsers {
-    User user = new User();
+   // User user = new User();
     
     @Autowired
    // @Qualifier("usersDaoImpl")
@@ -47,7 +47,7 @@ public class ManageUsers {
 //        listUser();
 //    }
 
-    @Transactional
+/*    @Transactional
     public void addUser(User user) {
         userDaoImpl.addEntity(user);
     }
@@ -61,7 +61,7 @@ public class ManageUsers {
     @Transactional
     public void deleteUser(int userId) {
         userDaoImpl.deleteEntity(user, userId);
-    }
+    }*/
 //    
 //    @Transactional
 //    public User getUserByPassword(User user) {

@@ -11,7 +11,6 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Window;
-import ru.mf.rui.db.entity.User;
 
 /**
  *
@@ -20,12 +19,12 @@ import ru.mf.rui.db.entity.User;
 public class UserForm extends Window implements Button.ClickListener{
     
     private FormLayout editorForm = new FormLayout();
-    private BeanFieldGroup<User> binder = new BeanFieldGroup<User>(User.class);
+ //   private BeanFieldGroup<User> binder = new BeanFieldGroup<User>(User.class);
     
     public UserForm() {
         
-        editorForm.addComponent(binder.buildAndBind("Name", "username"));
-        binder.setBuffered(true);
+/*        editorForm.addComponent(binder.buildAndBind("Name", "username"));
+        binder.setBuffered(true);*/
         this.setContent(editorForm);
     }
 
