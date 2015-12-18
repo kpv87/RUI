@@ -6,7 +6,7 @@
 
 package ru.mf.rui.view;
 
-import ru.mf.rui.view.component.DashboardMenu;
+import ru.mf.rui.view.component.ApplicationMenu;
 
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.ComponentContainer;
@@ -21,14 +21,12 @@ import com.vaadin.ui.VerticalLayout;
  */
 
 public class MainView extends HorizontalLayout {
-//    private HorizontalLayout horizontalLayout;
-//    private VerticalLayout verticalLayout;
 
     public MainView() {
         setSizeFull();
-        addStyleName("mainview");
+        addStyleName("mainview"); // Это просто имя стиля(не ссылка на CSS)
 
-        addComponent(new DashboardMenu());
+        addComponent(new ApplicationMenu());
     
         ComponentContainer content = new CssLayout();
         content.addStyleName("view-content");
@@ -42,14 +40,4 @@ public class MainView extends HorizontalLayout {
         //TODO add head of site(picture) 
     }
 
-    public void setAuthentication(VerticalLayout authenticationLayout){
-        /*this.addComponent(authenticationLayout, "left: 90%; right: 0px" +
-                                         "top: 2px; bottom: 90%");*/
-    }
-    
-    public void setLeftMenu(VerticalLayout menuLayout){
-        /*this.addComponent(menuLayout, "left: 1%; right: 80%;" +
-                                        "top: 20%; bottom: 30%");*/ 
-    }
-    
 }

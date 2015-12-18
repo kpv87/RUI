@@ -32,20 +32,16 @@ import com.vaadin.ui.themes.ValoTheme;
 @Scope("prototype")*/ 
 public class StartViewLayout extends Panel implements View{
 
-
-/*	@Autowired
-	private VerticalLayout authenticationLayout;*/
-
     public static final String EDIT_ID = "dashboard-edit";
     public static final String TITLE_ID = "dashboard-title";
 
     private Label titleLabel;
     private CssLayout dashboardPanels;
     private Window notificationsWindow;
-    private final VerticalLayout root;
+  // private final VerticalLayout root;
 	
 	public StartViewLayout() {
-		addStyleName(ValoTheme.PANEL_BORDERLESS);
+/*		addStyleName(ValoTheme.PANEL_BORDERLESS);
         setSizeFull();
         //DashboardEventBus.register(this);
 
@@ -61,8 +57,8 @@ public class StartViewLayout extends Panel implements View{
     //    root.addComponent(buildSparklines());
 
     //    Component content = buildContent();
-   /*     root.addComponent(content);
-        root.setExpandRatio(content, 1);*/
+        root.addComponent(content);
+        root.setExpandRatio(content, 1);
 
         // All the open sub-windows should be closed whenever the root layout
         // gets clicked.
@@ -71,21 +67,12 @@ public class StartViewLayout extends Panel implements View{
             public void layoutClick(final LayoutClickEvent event) {
                // DashboardEventBus.post(new CloseOpenWindowsEvent());
             }
-        });
+        });*/
     }
     
-	public void setAuthenticationLayout(VerticalLayout authenticationLayout) {
-	//	setAuthentication(authenticationLayout);
-	}
-	
-	public void setLeftMenuLayout(VerticalLayout leftMenuLayout) {
-		//setLeftMenu(leftMenuLayout);
-	}
-
 	@Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
     	
-    //	setAuthentication(authenticationLayout);
         Notification.show("Start Page");
     }
     

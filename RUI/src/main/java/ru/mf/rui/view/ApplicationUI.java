@@ -53,27 +53,8 @@ public class ApplicationUI extends UI {
     
     @Override
     protected void init(VaadinRequest request) {
-
-//TODO добавить шаблон стиля    	
-/*    	ComboBox themePicker = new ComboBox("Theme", Arrays.asList(themes));
-        themePicker.setValue(getTheme());
-
-        themePicker.addValueChangeListener(new ValueChangeListener() {
-            @Override
-            public void valueChange(ValueChangeEvent event) {
-                String theme = (String) event.getProperty().getValue();
-                setTheme(theme);
-            }
-        });
-
-        setContent(themePicker);*/
-    	
-    	
-       // SpringContextHelper contextHelper = new SpringContextHelper(VaadinServlet.getCurrent().getServletContext());
-       // ManageUsers manageUsers = (ManageUsers) contextHelper.getBean("manageUsers");
     	
         getPage().setTitle("Main window");
-        
         setLocale(Locale.US);
 
         ApplicationEventBus.register(this);

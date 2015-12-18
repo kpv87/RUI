@@ -98,10 +98,11 @@
 			</dependency> -->
 		<!-- JDBC dependencies -->
 		<dependency>
-			<groupId>postgresql</groupId>
+			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
+			<version>9.4-1201-jdbc41</version>
 		</dependency>
+				
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
@@ -179,6 +180,18 @@
 				<version>2.6</version>
 
 			</plugin>
+			<!-- for run main class -->
+			 <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>ru.mf.rui.testmainclass.TestDB</mainClass>
+                    <!-- <arguments>
+                        <argument>argument1</argument>
+                    </arguments> -->
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

@@ -41,7 +41,7 @@ import com.vaadin.ui.themes.ValoTheme;
  * primary navigation between the views.
  */
 @SuppressWarnings({ "serial", "unchecked" })
-public final class DashboardMenu extends CustomComponent {
+public final class ApplicationMenu extends CustomComponent {
 
     public static final String ID = "dashboard-menu";
     public static final String REPORTS_BADGE_ID = "dashboard-menu-reports-badge";
@@ -51,7 +51,7 @@ public final class DashboardMenu extends CustomComponent {
     private Label reportsBadge;
     private MenuItem settingsItem;
 
-    public DashboardMenu() {
+    public ApplicationMenu() {
         addStyleName("valo-menu");
         setId(ID);
         setSizeUndefined();
@@ -81,7 +81,7 @@ public final class DashboardMenu extends CustomComponent {
     }
 
     private Component buildTitle() {
-        Label logo = new Label("QuickTickets <strong>Dashboard</strong>",
+        Label logo = new Label("<strong>RUI</strong>",
                 ContentMode.HTML);
         logo.setSizeUndefined();
         HorizontalLayout logoWrapper = new HorizontalLayout(logo);
@@ -150,7 +150,7 @@ public final class DashboardMenu extends CustomComponent {
         for (final ApplicationViewType view : ApplicationViewType.values()) {
             Component menuItemComponent = new ValoMenuItemButton(view);
 
-            if (view == ApplicationViewType.REPORTS) {
+           /* if (view == ApplicationViewType.REPORTS) {
                 // Add drop target to reports button
                 DragAndDropWrapper reports = new DragAndDropWrapper(
                         menuItemComponent);
@@ -188,7 +188,7 @@ public final class DashboardMenu extends CustomComponent {
                 reportsBadge.setId(REPORTS_BADGE_ID);
                 menuItemComponent = buildBadgeWrapper(menuItemComponent,
                         reportsBadge);
-            }
+            }*/
 
             menuItemsLayout.addComponent(menuItemComponent);
         }

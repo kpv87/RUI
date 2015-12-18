@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="ru.mf.rui" />
-
+	
 	<import resource="/db/db-config.xml" />
 	<import resource="/view/view-config.xml" />
  	
