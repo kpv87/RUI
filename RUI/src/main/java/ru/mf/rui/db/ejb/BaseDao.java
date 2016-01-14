@@ -5,7 +5,7 @@ import java.util.List;
 public class BaseDao implements BaseDaoInterface{
 
 	@Override
-	public void addEntity(Object employee) {
+	public void addEntity(Object entity) {
 				
 	}
 
