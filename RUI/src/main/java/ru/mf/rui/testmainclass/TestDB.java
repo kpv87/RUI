@@ -24,7 +24,6 @@ public class TestDB {
 		
 		/*JdbcCorporateEventDao jdbcCorporateEventDao = (JdbcCorporateEventDao)*/ 
 		context.getBean("dataSource");
-		
 		JdbcCorporateEventDao jdbcCorporateEventDao = (JdbcCorporateEventDao) context.getBean("jdbcCorporateEventDao");
 		JdbcTemplate jdbcTemplate = jdbcCorporateEventDao.getJdbctemplate();
 		int rowCount = jdbcTemplate.queryForObject("select count(*) from test", Integer.class);
@@ -37,9 +36,12 @@ public class TestDB {
 	                test.setTest(rs.getString("test"));
 	                return test;
 	            }
+
         });
 		System.err.println(test);
-		
+
+        System.err.println(test);
+
 		
 		
 		/*System.err.println(context.getBeanDefinitionNames());
