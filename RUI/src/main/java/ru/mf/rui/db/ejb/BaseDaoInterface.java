@@ -4,6 +4,8 @@
  */
 package ru.mf.rui.db.ejb;
 
+import ru.mf.rui.db.entity.BaseRow;
+
 import java.util.List;
 
 /**
@@ -12,13 +14,17 @@ import java.util.List;
  */
 public interface BaseDaoInterface {
 
-    public void addEntity(Object employee);
+    public void addRow(Object entity);
 
-    public List<Object> getAllEntity(Object entity);
+    public List<BaseRow> getRowList(Object entity);
 
-    public void deleteEntity(Object entity, Integer entityId);
+    public void deleteRow(Object entity, Integer entityId);
 
-    public void editEntity(Object entity, Integer entityId);
+    public void editRow(Object entity, Integer entityId);
+
+    public BaseRow getNextRow();
+
+    public int getPositionRow();
     
  //   public Object getEntityById(Object entity, Integer entityId);
 }
